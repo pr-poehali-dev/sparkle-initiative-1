@@ -1,4 +1,6 @@
-import Icon from '@/components/ui/icon';
+import { Home, Wrench, Building2, Layers, Droplets, Shield, LucideIcon } from 'lucide-react';
+
+const iconMap: Record<string, LucideIcon> = { Home, Wrench, Building2, Layers, Droplets, Shield };
 
 const services = [
   {
@@ -83,7 +85,7 @@ export default function ServicesSection() {
             >
               <div className="flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center bg-amber-400/10 text-amber-400 group-hover:bg-amber-400 group-hover:text-black transition-all duration-300">
-                  <Icon name={service.icon} size={22} />
+                  {(() => { const I = iconMap[service.icon]; return I ? <I size={22} /> : null; })()}
                 </div>
                 <span className="text-amber-400 font-bold text-sm mt-1">{service.price}</span>
               </div>
